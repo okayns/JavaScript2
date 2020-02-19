@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BookList</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<h1>Book List</h1>
+
+<body>
+
+    <script>
+        const books = [{
+                title: 'The Design of Everyday Things',
+                author: 'Don Norman',
+                alreadyRead: false
+            },
+            {
+                title: 'The Most Human Human',
+                author: 'Brian Christian',
+                alreadyRead: true
+            },
+            {
+                title: 'The Pragmatic Programmer',
+                author: 'Andrew Hunt',
+                alreadyRead: true
+            }
+        ];
+
+        const ulEl = document.createElement('ul')
+        document.body.appendChild(ulEl);
+        ulEl.style.listStyle = 'none'
+        ulEl.style.display = 'flex'
+        ulEl.style.justifyContent = 'space-around';
+
+        const imgBooks = ['img/1.jpg', 'img/2.jpg', 'img/3.jpg']; 
+
+        for (let i = 0; i < books.length; ++i) {
+            const parag = document.createElement('p');
+            const image = document.createElement('img');
+            const liEl = document.createElement('li');
+
+            ulEl.appendChild(liEl);
+            liEl.appendChild(parag);
+            liEl.appendChild(image);
+
+            parag.innerHTML = books[i].title + ' - ' + books[i].author;
+            image.src = imgBooks[i];
+
+
+            if (books[i].alreadyRead) {
+                liEl.style.backgroundColor = 'green'
+            } else {
+                liEl.style.backgroundColor = 'red'
+            }
+
+            image.style.width = '100%';
+            image.style.height = '100%';
+            liEl.style.width = '25%';
+            liEl.style.height = '600px';
+        }
+
+        document.querySelector('body').style.textAlign = 'center';
+        document.querySelector('body').style.fontSize = '1.2rem';
+    </script>
+
+</body>
+
+</html>
