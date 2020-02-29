@@ -7,8 +7,19 @@ const hackYourFutureMembers = [
   { name: 'Tjebbe', age: 22 },
 ];
 
-const members = hackYourFutureMembers
-  .map(member => member.age) // creates new array that include hackYourFutureMembers age
-  .reduce((total, age) => total + age); // combines all ages of new age array.
+function totalAge(ageArray) {
+  return ageArray.reduce((total, age) => total + age);
+}
 
-console.log(`The collective age of the HYF team is: ${members}`);
+function collectiveAge(members, sumFunction) {
+  const ageList = members.map(member => member.age);
+  return `collective age ${sumFunction(ageList)}`;
+}
+
+console.log(collectiveAge(hackYourFutureMembers, totalAge));
+
+// const members = hackYourFutureMembers
+//   .map(member => member.age) // creates new array that include hackYourFutureMembers age
+//   .reduce((total, age) => total + age); // combines all ages of new age array.
+
+// console.log(`The collective age of the HYF team is: ${members}`);
