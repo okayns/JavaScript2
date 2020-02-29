@@ -50,6 +50,7 @@ h2 {
 }
 
 #screen {
+  width: 45rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
   border: 10px solid #14363a;
